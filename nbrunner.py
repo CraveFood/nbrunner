@@ -24,7 +24,7 @@ def render():
     except FileNotFoundError:
         abort(404)
     pre = ExecutePreprocessor()
-    pre.preprocess(notebook, {'metadata': {'path': filepath.parent}})
+    pre.preprocess(notebook, {'metadata': {'path': str(filepath.parent)}})
     exporter = HTMLExporter()
     body, resources = exporter.from_notebook_node(notebook)
     return body
