@@ -2,3 +2,4 @@ Flask
 jupyter
 nbconvert
 nbformat
+glob2

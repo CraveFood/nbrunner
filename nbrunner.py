@@ -1,4 +1,4 @@
-import glob
+import glob2
 import itertools
 import os
 import pathlib
@@ -35,7 +35,7 @@ def index():
     # unfortunately, pathlib.{i,}glob cannot be used in most versions < 3.6
     # due to a bug with permissions - see http://bugs.python.org/issue24120
     root = os.path.normpath(os.environ['NBRUNNER_ROOT'])
-    files = glob.glob('{}/**/*.ipynb'.format(root), recursive=True)
+    files = glob2.glob('{}/**/*.ipynb'.format(root))
     file_items = itertools.groupby(sorted(files), lambda f: os.path.dirname(f))
     folder_files = {}
     for path, items in file_items:
