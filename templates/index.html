@@ -11,7 +11,7 @@
                     {% for path, filename in file_list %}
                     <li class="mdl-list__item">
                         <span class="mdl-list__item-primary-content">
-                            <a href="/render?file={{ path|urlencode }}">{{ filename }}</a>
+                            <a href="{{ url_for('render') }}?file={{ path|urlencode }}">{{ filename }}</a>
                         </span>
                     </li>
                     {% endfor %}
