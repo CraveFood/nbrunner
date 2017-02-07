@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+{% block content %}
+    <div class="mdl-grid" style="max-width: 640px">
+        {% for folder, file_list in files %}
+        <div class="mdl-card mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-shadow--2dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">{{ folder }}</h2>
+            </div>
+            <div class="mdl-card__content">
+                <ul class="mdl-list">
+                    {% for file in file_list %}
+                    <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                            <a href="/render?file={{ file.relative_to(root)|urlencode }}">{{ file.name }}</a>
+                        </span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
